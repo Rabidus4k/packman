@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Score
   _config: {fileID: 11400000, guid: a40934af12ae36e44aaf75d746b57b2c, type: 2}
-  _coinAnimator: {fileID: 6151743837371129573}
+  _animator: {fileID: 6151743837371129573}
 --- !u!1 &4834218106194179856
 GameObject:
   m_ObjectHideFlags: 0

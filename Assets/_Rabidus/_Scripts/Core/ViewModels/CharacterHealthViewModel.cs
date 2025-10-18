@@ -16,4 +16,10 @@ public class CharacterHealthViewModel : CharacterViewModel, ICharacterHealthView
         if (Health.Value == 0)
             IsDead.Value = true;
     }
+
+    public void GetHeal(int heal)
+    {
+        _model.GetHeal(heal);
+        Health.Value = _model.Health;
+    }
 }

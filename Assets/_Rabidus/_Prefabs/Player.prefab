@@ -186,7 +186,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1136260423002599132}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -194,10 +194,10 @@ RectTransform:
   m_Father: {fileID: 3493642941985797902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1241.2751, y: -2.9583814}
-  m_SizeDelta: {x: -2515.1824, y: -16.794098}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 16.315918, y: 5.4387}
+  m_SizeDelta: {x: 249.6176, y: 83.2059}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &7810672544719849301
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1337,7 +1337,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 16.31604, y: 5.4387}
+  m_AnchoredPosition: {x: 16.315918, y: 5.4387}
   m_SizeDelta: {x: 249.6176, y: 83.2059}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &3760050332614204824
@@ -1407,6 +1407,7 @@ GameObject:
   - component: {fileID: 3009081202977184669}
   - component: {fileID: 5773897931862023153}
   - component: {fileID: 2487400327995886042}
+  - component: {fileID: 9057805774648549435}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1565,6 +1566,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c617e8c10e5d7449b86c7611d101ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreInteractableView
+  _collisionEventsHub: {fileID: 3009081202977184669}
+--- !u!114 &9057805774648549435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686770951838589116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5f062357e82b84da88a0c684acc1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthInteractableView
   _collisionEventsHub: {fileID: 3009081202977184669}
 --- !u!1 &5998088479611416852
 GameObject:

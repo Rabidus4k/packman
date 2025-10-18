@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class CoinAnimator : MonoBehaviour
+public class InteractableAnimator : MonoBehaviour
 {
     [SerializeField] private GameObject _root;
     [SerializeField] private Collider _collider;

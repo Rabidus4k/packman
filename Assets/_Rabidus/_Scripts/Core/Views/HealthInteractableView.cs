@@ -1,13 +1,12 @@
-using System;
 using UnityEngine;
 
-public class ScoreInteractableView : MonoBehaviour
+public class HealthInteractableView : MonoBehaviour
 {
     [SerializeField] private CollisionEventsHub _collisionEventsHub;
 
-    private IScoreViewModel _viewModel;
+    private ICharacterHealthViewModel _viewModel;
 
-    private void OnEnable()=> _collisionEventsHub.OnTriggerEnterEvent.AddListener(HandleScoreTrigger);
+    private void OnEnable() => _collisionEventsHub.OnTriggerEnterEvent.AddListener(HandleScoreTrigger);
     private void OnDisable() => _collisionEventsHub.OnTriggerEnterEvent.RemoveListener(HandleScoreTrigger);
 
     private void HandleScoreTrigger(Collider collider)
@@ -15,14 +14,14 @@ public class ScoreInteractableView : MonoBehaviour
         if (collider == null) return;
         if (collider.gameObject.TryGetComponent(out IInteractable interactable))
         {
-            if (interactable is Score && interactable.TryInteract())
+            if (interactable is Heart && interactable.TryInteract())
             {
-                _viewModel.AddScore((interactable as Score).ScoreToAdd);
+                _viewModel.GetHeal((interactable as Heart).HealthToAdd);
             }
         }
     }
 
-    public void Initialize(IScoreViewModel viewModel)
+    public void Initialize(ICharacterHealthViewModel viewModel)
     {
         _viewModel = viewModel;
     }

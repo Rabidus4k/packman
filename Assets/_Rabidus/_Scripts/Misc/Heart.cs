@@ -1,13 +1,11 @@
-using Lean.Pool;
 using UnityEngine;
 
-public class Score : MonoBehaviour, IInteractable
+public class Heart : MonoBehaviour, IInteractable
 {
-    [SerializeField] private ScoreConfig _config;
+    [SerializeField] private HealthConfig _config;
     [SerializeField] private InteractableAnimator _animator;
 
-    public int ScoreToAdd => _config.ScoreToAdd;    
-
+    public int HealthToAdd => _config.HealthToAdd;
 
     public bool TryInteract()
     {

@@ -9,6 +9,7 @@ public class SceneInstaller : MonoBehaviour
     [SerializeField] private CharacterInputView _inputView;
     [SerializeField] private ScoreView _scoreView;
     [SerializeField] private ScoreInteractableView _scoreInteractableView;
+    [SerializeField] private HealthInteractableView _healthInteractableView;
 
     [SerializeField] private CharacterConfig _config;
     private void Awake()
@@ -26,7 +27,10 @@ public class SceneInstaller : MonoBehaviour
         ScoreViewModel scoreViewModel = new ScoreViewModel(playerModel);
         
         _healthView.Initialize(characterHealthViewModel);
+        _healthInteractableView.Initialize(characterHealthViewModel);
+
         _inputView.Initialize(characterInputViewModel);
+
         _scoreView.Initialize(scoreViewModel);
         _scoreInteractableView.Initialize(scoreViewModel);
     }

@@ -16,5 +16,6 @@ public interface ICharacterModel
 
     void HandleInput(float horizontal, float vertical);
     void GetDamage(int damage);
+    void GetHeal(int heal);
     void AddScore(int score);
 }

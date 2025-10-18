@@ -25,6 +25,7 @@ public class CharacterHealthView : MonoBehaviour
     private void HandleHealthChange(int health)
     {
         _healthBar.SetHealth(health);
+        Debug.Log($"[HandleHealthChange] Health: {health}");
     }
 
     [Button]

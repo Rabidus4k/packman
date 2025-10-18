@@ -29,6 +29,17 @@ public class CharacterModel : ICharacterModel
         Health = Mathf.Clamp(Health - damage, 0, Config.MaxHealth);
     }
 
+    public void GetHeal(int heal)
+    {
+        if (heal <= 0)
+        {
+            Debug.LogError("[GetHeal] Wrong damage");
+            return;
+        }
+
+        Health = Mathf.Clamp(Health + heal, 0, Config.MaxHealth);
+    }
+
     public void AddScore(int score)
     {
         if (score <= 0)
