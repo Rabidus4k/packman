@@ -8,7 +8,6 @@ public class CharacterInputView : MonoBehaviour
     [SerializeField] private Animator _animator;
 
     private ICharacterInputViewModel _viewModel;
-    private Vector3 _desiredMovement;
     private float _rotationSpeed = 180f;
 
     public void Initialize(ICharacterInputViewModel viewModel)
@@ -39,18 +38,9 @@ public class CharacterInputView : MonoBehaviour
 
     private void SetMovement(Vector3 movement)
     {
-        _desiredMovement = movement;
-    }
-
-    private void FixedUpdate()
-    {
-        Vector3 movement = new Vector3(_desiredMovement.x, 0, _desiredMovement.y);
-
         ApplyMovement(movement);
         ApplyRotation(movement);
         ApplyAnimation(movement);
-
-        _desiredMovement = Vector3.zero;
     }
 
     private void ApplyMovement(Vector3 movement)
@@ -69,6 +59,6 @@ public class CharacterInputView : MonoBehaviour
 
     private void ApplyAnimation(Vector3 movement)
     {
-        _animator.SetFloat(AnimationHashContainer.Speed, _desiredMovement.normalized.magnitude);
+        _animator.SetFloat(AnimationHashContainer.Speed, movement.normalized.magnitude);
     }
 }
