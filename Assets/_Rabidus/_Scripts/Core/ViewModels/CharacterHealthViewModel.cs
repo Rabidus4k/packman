@@ -1,10 +1,13 @@
-public class CharacterHealthViewModel : CharacterViewModel, ICharacterHealthViewModel
+public class CharacterHealthViewModel : ICharacterHealthViewModel
 {
     public ReactiveProperty<int> Health { get; private set; } = new ReactiveProperty<int>();
     public ReactiveProperty<bool> IsDead { get; private set; } = new ReactiveProperty<bool>();
+    
+    protected ICharacterHealthModel _model;
 
-    public CharacterHealthViewModel(ICharacterModel model) : base(model)
+    public CharacterHealthViewModel(ICharacterHealthModel model)
     {
+        _model = model;
         Health.Value = model.Health;
     }
 

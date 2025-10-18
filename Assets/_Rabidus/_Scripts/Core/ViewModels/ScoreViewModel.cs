@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class ScoreViewModel : CharacterViewModel, IScoreViewModel
+public class ScoreViewModel : IScoreViewModel
 {
     public ReactiveProperty<int> Score {get; private set;} = new ReactiveProperty<int>();
 
-    public ScoreViewModel(ICharacterModel model) : base(model)
+    protected ICharacterScoreModel _model;
+
+    public ScoreViewModel(ICharacterScoreModel model)
     {
+        _model = model;
     }
 
     public void AddScore(int score)

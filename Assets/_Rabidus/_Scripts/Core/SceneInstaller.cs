@@ -19,12 +19,16 @@ public class SceneInstaller : MonoBehaviour
 
     private void SetupPlayer()
     {
-        CharacterModel playerModel = new CharacterModel();
-        playerModel.Initialize(_config);
+        CharacterModel characterModel = new CharacterModel();
+        CharacterHealthModel characterHealthModel = new CharacterHealthModel();
+        CharacterScoreModel characterScoreModel = new CharacterScoreModel();
 
-        CharacterHealthViewModel characterHealthViewModel = new CharacterHealthViewModel(playerModel);
-        CharacterInputViewModel characterInputViewModel = new CharacterInputViewModel(playerModel);
-        ScoreViewModel scoreViewModel = new ScoreViewModel(playerModel);
+        characterModel.Initialize(_config);
+        characterHealthModel.Initialize(_config);
+
+        CharacterHealthViewModel characterHealthViewModel = new CharacterHealthViewModel(characterHealthModel);
+        CharacterInputViewModel characterInputViewModel = new CharacterInputViewModel(characterModel);
+        ScoreViewModel scoreViewModel = new ScoreViewModel(characterScoreModel);
         
         _healthView.Initialize(characterHealthViewModel);
         _healthInteractableView.Initialize(characterHealthViewModel);
