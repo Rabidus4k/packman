@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharacterModel : ICharacterModel
+public class CharacterInputModel : ICharacterInputModel
 {
     public CharacterConfig Config { get; private set; }
     public Vector3 Movement { get; private set;}

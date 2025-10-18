@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface ICharacterModel
+public interface ICharacterInputModel
 {
     //Configs
     public CharacterConfig Config { get; }

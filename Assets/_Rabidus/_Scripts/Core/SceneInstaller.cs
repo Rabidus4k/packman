@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [DefaultExecutionOrder(-1000)]
@@ -10,21 +11,67 @@ public class SceneInstaller : MonoBehaviour
     [SerializeField] private ScoreView _scoreView;
     [SerializeField] private ScoreInteractableView _scoreInteractableView;
     [SerializeField] private HealthInteractableView _healthInteractableView;
+    [SerializeField] private CharacterConfig _characterConfig;
 
-    [SerializeField] private CharacterConfig _config;
+    [Header("Enemy")]
+    [SerializeField] private EnemyView _enemyView;
+    [SerializeField] private EnemyDamageView _enemyDamageView;
+    [SerializeField] private EnemyConfig _enemyConfig;
+
+    [Header("Patrol Enemy")]
+    [SerializeField] private List<Transform> _waypoints;
+    [SerializeField] private EnemyPatrolView _enemyPatrolView;
+    [SerializeField] private EnemyDamageView _enemyPatrolDamageView;
+    [SerializeField] private EnemyConfig _enemyPatrolConfig;
+
     private void Awake()
     {
         SetupPlayer();
+        SetupEnemy();
+        SetupPatrolEnemy();
+    }
+
+    private void SetupPatrolEnemy()
+    {
+        EnemyPatrolModel enemyModel = new EnemyPatrolModel();
+        EnemyDamageModel enemyDamageModel = new EnemyDamageModel();
+
+        enemyModel.Initialize(_enemyPatrolConfig);
+        enemyDamageModel.Initialize(_enemyPatrolConfig);
+
+        EnemyPatrolViewModel enemyViewModel = new EnemyPatrolViewModel(enemyModel);
+
+        EnemyDamageViewModel enemyDamageViewModel = new EnemyDamageViewModel(enemyDamageModel);
+
+        _enemyPatrolView.Initialize(enemyViewModel);
+        _enemyPatrolDamageView.Initialize(enemyDamageViewModel);
+
+        enemyViewModel.SetWaypoints(_waypoints);
+    }
+
+    private void SetupEnemy()
+    {
+        EnemyModel enemyModel = new EnemyModel();
+        EnemyDamageModel enemyDamageModel = new EnemyDamageModel();
+
+        enemyModel.Initialize(_enemyConfig);
+        enemyDamageModel.Initialize(_enemyConfig);
+
+        EnemyViewModel enemyViewModel = new EnemyViewModel(enemyModel);
+        EnemyDamageViewModel enemyDamageViewModel = new EnemyDamageViewModel(enemyDamageModel);
+
+        _enemyView.Initialize(enemyViewModel);
+        _enemyDamageView.Initialize(enemyDamageViewModel);
     }
 
     private void SetupPlayer()
     {
-        CharacterModel characterModel = new CharacterModel();
+        CharacterInputModel characterModel = new CharacterInputModel();
         CharacterHealthModel characterHealthModel = new CharacterHealthModel();
         CharacterScoreModel characterScoreModel = new CharacterScoreModel();
 
-        characterModel.Initialize(_config);
-        characterHealthModel.Initialize(_config);
+        characterModel.Initialize(_characterConfig);
+        characterHealthModel.Initialize(_characterConfig);
 
         CharacterHealthViewModel characterHealthViewModel = new CharacterHealthViewModel(characterHealthModel);
         CharacterInputViewModel characterInputViewModel = new CharacterInputViewModel(characterModel);

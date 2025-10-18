@@ -6,9 +6,9 @@ public class CharacterInputViewModel : ICharacterInputViewModel
 
     public ReactiveProperty<float> RotationSpeed { get; private set;} = new ReactiveProperty<float>();
 
-    protected ICharacterModel _model;
+    protected ICharacterInputModel _model;
 
-    public CharacterInputViewModel(ICharacterModel model)
+    public CharacterInputViewModel(ICharacterInputModel model)
     {
         _model = model;
         Movement.Value = model.Movement;

@@ -18,6 +18,11 @@ public class HealthInteractableView : MonoBehaviour
             {
                 _viewModel.GetHeal((interactable as Heart).HealthToAdd);
             }
+
+            if (interactable is EnemyDamageView && interactable.TryInteract())
+            {
+                _viewModel.GetDamage((interactable as EnemyDamageView).Damage);
+            }
         }
     }
 

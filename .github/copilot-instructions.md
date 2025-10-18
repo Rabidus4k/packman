@@ -2,7 +2,7 @@
 - Project name: packman
 - Unity version: Unity 6000.2.2f1
 - Active game object:
-  - Name: SceneInstaller
+  - Name: Floor
   - Tag: Untagged
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
