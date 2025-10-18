@@ -49,6 +49,7 @@ public static class SceneLoader
             var p = Mathf.InverseLerp(0f, 0.9f, op.progress);
             progress?.Report(p);
             LoadingScreen?.SetProgress(p);
+            await UniTask.Delay(10);
             await UniTask.Yield(PlayerLoopTiming.Update, ct);
         }
 
