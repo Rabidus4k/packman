@@ -197,9 +197,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8183882174947212556}
     m_Modifications:
+    - target: {fileID: 140916257628692472, guid: 4ccacc66f432b1c4794520468626cf67, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 140916257628692472, guid: 4ccacc66f432b1c4794520468626cf67, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 75d562381bed0db4a88c9f1ef3e2a1df, type: 3}
+    - target: {fileID: 140916257628692472, guid: 4ccacc66f432b1c4794520468626cf67, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1707697312373834461, guid: 4ccacc66f432b1c4794520468626cf67, type: 3}
       propertyPath: m_Name
       value: Canvas-LoadingScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988209989573241315, guid: 4ccacc66f432b1c4794520468626cf67, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1988209989573241315, guid: 4ccacc66f432b1c4794520468626cf67, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763384710882405523, guid: 4ccacc66f432b1c4794520468626cf67, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7131101109604844586, guid: 4ccacc66f432b1c4794520468626cf67, type: 3}
       propertyPath: m_Pivot.x
