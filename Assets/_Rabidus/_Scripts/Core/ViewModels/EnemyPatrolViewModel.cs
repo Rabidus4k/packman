@@ -10,7 +10,6 @@ public class EnemyPatrolViewModel : EnemyViewModel, IEnemyPatrolViewModel
     public EnemyPatrolViewModel(IEnemyPatrolModel model) : base(model)
     {
         _model = model;
-        Waypoints.Value = new List<Transform>();
     }
 
     public void SetWaypoints(List<Transform> waypoints)

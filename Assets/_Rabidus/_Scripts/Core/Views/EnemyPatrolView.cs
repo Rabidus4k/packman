@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyPatrolView : EnemyView
 {
-    private List<Transform> _waypoints = new List<Transform>();
+    [SerializeField] private List<Transform> _waypoints = new List<Transform>();
     private new IEnemyPatrolViewModel _viewModel;
     private Transform _currentWaypoint = null;
 

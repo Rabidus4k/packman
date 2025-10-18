@@ -66,8 +66,6 @@ public class SceneInstaller : MonoBehaviour
 
         _enemyPatrolView.Initialize(enemyViewModel);
         _enemyPatrolDamageView.Initialize(enemyDamageViewModel);
-
-        enemyViewModel.SetWaypoints(_waypoints);
     }
 
     private void SetupEnemy()
