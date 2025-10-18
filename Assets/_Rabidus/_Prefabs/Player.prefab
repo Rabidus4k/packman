@@ -1408,7 +1408,8 @@ GameObject:
   - component: {fileID: 5773897931862023153}
   - component: {fileID: 2487400327995886042}
   - component: {fileID: 9057805774648549435}
-  m_Layer: 0
+  - component: {fileID: 5349287605123597794}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1580,6 +1581,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthInteractableView
   _collisionEventsHub: {fileID: 3009081202977184669}
+--- !u!114 &5349287605123597794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686770951838589116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31f7bbf3a1609c4f80472fe24f2784d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!1 &5998088479611416852
 GameObject:
   m_ObjectHideFlags: 0

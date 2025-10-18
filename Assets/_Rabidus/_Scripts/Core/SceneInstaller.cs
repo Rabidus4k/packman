@@ -24,11 +24,32 @@ public class SceneInstaller : MonoBehaviour
     [SerializeField] private EnemyDamageView _enemyPatrolDamageView;
     [SerializeField] private EnemyConfig _enemyPatrolConfig;
 
+    [Header("Spy Enemy")]
+    [SerializeField] private EnemySpyView _enemySpyView;
+    [SerializeField] private EnemyDamageView _enemySpyDamageView;
+    [SerializeField] private EnemyConfig _enemySpyConfig;
+
     private void Awake()
     {
         SetupPlayer();
         SetupEnemy();
         SetupPatrolEnemy();
+        SetupSpyEnemy();
+    }
+
+    private void SetupSpyEnemy()
+    {
+        EnemySpyModel enemyModel = new EnemySpyModel();
+        EnemyDamageModel enemyDamageModel = new EnemyDamageModel();
+
+        enemyModel.Initialize(_enemySpyConfig);
+        enemyDamageModel.Initialize(_enemySpyConfig);
+
+        EnemySpyViewModel enemyViewModel = new EnemySpyViewModel(enemyModel);
+        EnemyDamageViewModel enemyDamageViewModel = new EnemyDamageViewModel(enemyDamageModel);
+
+        _enemySpyView.Initialize(enemyViewModel);
+        _enemySpyDamageView.Initialize(enemyDamageViewModel);
     }
 
     private void SetupPatrolEnemy()

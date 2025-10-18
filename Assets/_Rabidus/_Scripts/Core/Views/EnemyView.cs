@@ -5,11 +5,16 @@ using UnityEngine.AI;
 public class EnemyView : MonoBehaviour
 {
     [SerializeField] protected NavMeshAgent _agent;
-    [SerializeField] protected Transform _target;
+    protected Transform _target;
 
     protected IEnemyViewModel _viewModel;
     protected float _visionDistance;
     protected bool _canFollow;
+
+    protected virtual void Awake()
+    {
+        _target = FindAnyObjectByType<Player>().transform;
+    }
 
     public virtual void Initialize(IEnemyViewModel viewModel)
     {
@@ -42,7 +47,7 @@ public class EnemyView : MonoBehaviour
         _agent.angularSpeed = value;
     }
 
-    protected void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         float distance = Vector3.Distance(transform.position, _target.position);
 
