@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49564a3e47055d74394f324c4c62e569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoaderInstaller
-  dontDestroyOnLoad: 1
+  dontDestroyOnLoad: 0
   enableLogs: 0
   _loadingsScreen: {fileID: 3809324789037469350}
 --- !u!1 &1924765443787908807

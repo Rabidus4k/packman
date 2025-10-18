@@ -14,7 +14,7 @@ public class Score : MonoBehaviour, IInteractable
         if (_config == null) return false;
 
         _animator.OnCollect();
-
+        SoundManager.Instance.PlaySound("Collect");
         return true;
     }
 }

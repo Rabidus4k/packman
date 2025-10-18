@@ -12,7 +12,7 @@ public class Heart : MonoBehaviour, IInteractable
         if (_config == null) return false;
 
         _animator.OnCollect();
-
+        SoundManager.Instance.PlaySound("Heal");
         return true;
     }
 }
