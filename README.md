@@ -4,7 +4,9 @@
 > Небольшая, но основательная игровая заготовка с реактивной архитектурой, DI на Zenject, состояниями игры и базовой логикой врагов, здоровья и очков.
 
 ---
-![Demo GIF](Assets/_Rabidus/Gif/gif.gif)
+<p align="center">
+  <img src="Assets/_Rabidus/Gif/gif.gif" alt="Demo GIF" width="90%" />
+</p>
 ---
 
 ## ✨ Что внутри
