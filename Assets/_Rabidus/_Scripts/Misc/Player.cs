@@ -1,7 +1,6 @@
 using UnityEngine;
 
-//Empty script to Detect Player
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ITarget
 {
-
+    public Transform Target => transform;
 }

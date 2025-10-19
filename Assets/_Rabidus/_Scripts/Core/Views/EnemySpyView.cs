@@ -1,30 +1,42 @@
+using System;
 using UnityEngine;
+using Zenject;
 
 public class EnemySpyView : EnemyView
 {
     [SerializeField] private Transform _eyes;
-    [SerializeField] private LayerMask _obstacleLayerMask;
 
     private new IEnemySpyViewModel _viewModel;
     private bool _canSee;
+    private LayerMask _obstacles;
 
-    public void Initialize(IEnemySpyViewModel viewModel)
+    [Inject]
+    protected void Construct(IEnemySpyViewModel viewModel, ICharacterInputViewModel characterViewModel)
     {
-        base.Initialize(viewModel);
+        base.Construct(viewModel, characterViewModel);
 
         _viewModel = viewModel;
         _viewModel.CanSee.OnChanged += SetCanSee;
+        _viewModel.Obstacles.OnChanged += SetObstacles;
+
+        SetObstacles(_viewModel.Obstacles.Value);
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
         _viewModel.CanSee.OnChanged -= SetCanSee;
+        _viewModel.Obstacles.OnChanged -= SetObstacles;
     }
 
     private void SetCanSee(bool canSee)
     {
         _canSee = canSee;
+    }
+
+    private void SetObstacles(LayerMask mask)
+    {
+        _obstacles = mask;
     }
 
     protected override void FixedUpdate()
@@ -41,12 +53,12 @@ public class EnemySpyView : EnemyView
 
     private bool CheckForWall()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, _target.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, _characterInputViewModel.Position.Value);
         float rayDistance = Mathf.Min(distanceToPlayer, _visionDistance);
 
-        var direction = _target.position - transform.position;
+        var direction = _characterInputViewModel.Position.Value - transform.position;
 
         Debug.DrawRay(_eyes.position, direction.normalized * rayDistance, Color.red);
-        return Physics.Raycast(_eyes.position, direction.normalized, rayDistance, _obstacleLayerMask);
+        return Physics.Raycast(_eyes.position, direction.normalized, rayDistance, _obstacles);
     }
 }

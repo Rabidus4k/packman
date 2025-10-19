@@ -1,11 +1,12 @@
 using UnityEngine;
+using Zenject;
 
 public class CharacterHealthModel : ICharacterHealthModel
 {
-    public CharacterConfig Config { get; private set; }
+    public ICharacterConfig Config { get; private set; }
     public int Health { get; private set; }
 
-    public void Initialize(CharacterConfig config)
+    public CharacterHealthModel(ICharacterConfig config)
     {
         Config = config;
         Health = config.MaxHealth;

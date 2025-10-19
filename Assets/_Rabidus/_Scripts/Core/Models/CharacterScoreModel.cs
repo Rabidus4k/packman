@@ -14,4 +14,6 @@ public class CharacterScoreModel : ICharacterScoreModel
 
         Score += score;
     }
+
+    public CharacterScoreModel() { }
 }

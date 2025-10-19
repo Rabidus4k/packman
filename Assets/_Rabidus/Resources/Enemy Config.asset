@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3545aaebbfa620459ed26e51b6ab22d, type: 3}
   m_Name: Enemy Config
   m_EditorClassIdentifier: Assembly-CSharp::EnemyConfig
-  MoveSpeed: 4
-  RotationSpeed: 180
-  VisionDistance: 50
-  Damage: 1
+  <MoveSpeed>k__BackingField: 5
+  <RotationSpeed>k__BackingField: 180
+  <VisionDistance>k__BackingField: 15
+  <Damage>k__BackingField: 1

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 public class CharacterInputView : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class CharacterInputView : MonoBehaviour
     private Vector3 _desiredMovement;
     private float _rotationSpeed = 180f;
 
-    public void Initialize(ICharacterInputViewModel viewModel)
+    [Inject]
+    private void Construct(ICharacterInputViewModel viewModel)
     {
         _viewModel = viewModel;
         _viewModel.Movement.OnChanged += SetMovement;
@@ -35,6 +37,7 @@ public class CharacterInputView : MonoBehaviour
         var vertical = _joystick.Vertical;
 
         _viewModel.HandleInput(horizontal, vertical);
+        _viewModel.SetPosition(transform.position);
     }
 
     private void SetMovement(Vector3 movement)

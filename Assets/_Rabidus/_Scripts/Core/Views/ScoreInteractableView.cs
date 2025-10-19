@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 public class ScoreInteractableView : MonoBehaviour
 {
@@ -22,7 +23,8 @@ public class ScoreInteractableView : MonoBehaviour
         }
     }
 
-    public void Initialize(IScoreViewModel viewModel)
+    [Inject]
+    private void Construct(IScoreViewModel viewModel)
     {
         _viewModel = viewModel;
     }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 public class EnemyDamageView : MonoBehaviour, IInteractable
 {
@@ -6,7 +7,8 @@ public class EnemyDamageView : MonoBehaviour, IInteractable
     private int _damage;
     public int Damage => _damage;
 
-    public void Initialize(IEnemyDamageViewModel viewModel)
+    [Inject]
+    private void Construct(IEnemyDamageViewModel viewModel)
     {
         _viewModel = viewModel;
         _viewModel.Damage.OnChanged += SetDamage;

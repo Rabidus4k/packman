@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 public class ScoreView : MonoBehaviour
 {
@@ -7,7 +8,8 @@ public class ScoreView : MonoBehaviour
 
     private IScoreViewModel _viewModel;
 
-    public void Initialize(IScoreViewModel viewModel)
+    [Inject]
+    private void Construct(IScoreViewModel viewModel)
     {
         _viewModel = viewModel;
         _viewModel.Score.OnChanged += HandleScoreChange;

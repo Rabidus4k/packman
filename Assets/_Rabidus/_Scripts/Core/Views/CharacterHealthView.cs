@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using VInspector;
+using Zenject;
 
 public class CharacterHealthView : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class CharacterHealthView : MonoBehaviour
 
     private ICharacterHealthViewModel _viewModel;
 
-    public void Initialize(ICharacterHealthViewModel viewModel)
+    [Inject]
+    private void Construct(ICharacterHealthViewModel viewModel)
     {
         _viewModel = viewModel;
         _viewModel.Health.OnChanged += HandleHealthChange;

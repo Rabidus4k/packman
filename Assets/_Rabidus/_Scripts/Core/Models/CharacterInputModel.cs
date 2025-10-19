@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class CharacterInputModel : ICharacterInputModel
 {
-    public CharacterConfig Config { get; private set; }
+    public ICharacterConfig Config { get; private set; }
     public Vector3 Movement { get; private set;}
+    public Vector3 Position { get; private set;}
 
-    public void Initialize(CharacterConfig config) 
+    public CharacterInputModel(ICharacterConfig config) 
     {
         Config = config;
     } 
@@ -13,5 +14,10 @@ public class CharacterInputModel : ICharacterInputModel
     public void HandleInput(float horizontal, float vertical)
     {
         Movement = new Vector3(horizontal * Config.MoveSpeed, vertical * Config.MoveSpeed);
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        Position = position;
     }
 }

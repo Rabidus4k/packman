@@ -1,9 +1,9 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Rabidus/CharacterConfig")]
-public class CharacterConfig : ScriptableObject
+public class CharacterConfig : ScriptableObject, ICharacterConfig
 {
-    [Min(0f)] public float MoveSpeed = 5f;
-    [Min(0f)] public float RotationSpeed = 180f;
-    [Min(0f)] public int MaxHealth = 3;
+    [field: SerializeField, Min(0f)] public float MoveSpeed { get; private set; } = 5f;
+    [field: SerializeField, Min(0f)] public float RotationSpeed { get; private set; } = 180f;
+    [field: SerializeField, Min(0f)] public int MaxHealth { get; private set; } = 3;
 }

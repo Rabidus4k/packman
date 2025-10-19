@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 public class HealthInteractableView : MonoBehaviour
 {
@@ -26,7 +27,8 @@ public class HealthInteractableView : MonoBehaviour
         }
     }
 
-    public void Initialize(ICharacterHealthViewModel viewModel)
+    [Inject]
+    private void Construct(ICharacterHealthViewModel viewModel)
     {
         _viewModel = viewModel;
     }

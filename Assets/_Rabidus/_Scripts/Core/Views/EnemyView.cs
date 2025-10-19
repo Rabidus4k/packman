@@ -1,28 +1,29 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using Zenject;
 
 public class EnemyView : MonoBehaviour
 {
     [SerializeField] protected NavMeshAgent _agent;
-    protected Transform _target;
 
     protected IEnemyViewModel _viewModel;
+    protected ICharacterInputViewModel _characterInputViewModel;
+
     protected float _visionDistance;
     protected bool _canFollow;
 
-    protected virtual void Awake()
-    {
-        _target = FindAnyObjectByType<Player>().transform;
-    }
-
-    public virtual void Initialize(IEnemyViewModel viewModel)
+    [Inject]
+    protected void Construct(IEnemyViewModel viewModel, ICharacterInputViewModel characterViewModel)
     {
         _viewModel = viewModel;
-        _viewModel.TargetPosition.OnChanged += UpdatePath;
+
         _viewModel.RotationSpeed.OnChanged += SetRotationSpeed;
         _viewModel.VisionDistance.OnChanged += SetVisionDistance;
         _viewModel.CanFollow.OnChanged += SetCanFollow;
+
+        _characterInputViewModel = characterViewModel;
+        _characterInputViewModel.Position.OnChanged += UpdatePath;
 
         SetRotationSpeed(_viewModel.RotationSpeed.Value);
         SetVisionDistance(_viewModel.VisionDistance.Value);
@@ -30,10 +31,10 @@ public class EnemyView : MonoBehaviour
 
     protected virtual void OnDisable()
     {
-        _viewModel.TargetPosition.OnChanged -= UpdatePath;
         _viewModel.RotationSpeed.OnChanged -= SetRotationSpeed;
         _viewModel.VisionDistance.OnChanged -= SetVisionDistance;
         _viewModel.CanFollow.OnChanged -= SetCanFollow;
+        _characterInputViewModel.Position.OnChanged -= UpdatePath;
     }
 
     protected virtual void UpdatePath(Vector3 movement)
@@ -49,10 +50,9 @@ public class EnemyView : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        float distance = Vector3.Distance(transform.position, _target.position);
+        float distance = Vector3.Distance(transform.position, _characterInputViewModel.Position.Value);
 
         _viewModel.SetCanFollow(distance <= _visionDistance);
-        _viewModel.SetTargetPosition(_target.position);
     }
 
     protected void SetVisionDistance(float visionDistance)

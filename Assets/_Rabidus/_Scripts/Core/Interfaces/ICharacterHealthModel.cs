@@ -1,7 +1,7 @@
 public interface ICharacterHealthModel
 {
     //Configs
-    public CharacterConfig Config { get; }
+    public ICharacterConfig Config { get; }
 
     //Health
     public int Health { get; }

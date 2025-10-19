@@ -1,4 +1,4 @@
 public interface IEnemyDamageModel
 {
-    public EnemyConfig Config { get; }
+    public IEnemyConfig Config { get; }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Rabidus/ScoreConfig")]
-public class ScoreConfig : ScriptableObject
+public class ScoreConfig : ScriptableObject, IScoreConfig
 {
-    public int ScoreToAdd = 1;
+    [field: SerializeField] public int ScoreToAdd { get; private set; } = 1;
 }

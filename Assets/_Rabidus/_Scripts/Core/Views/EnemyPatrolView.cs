@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class EnemyPatrolView : EnemyView
 {
@@ -7,9 +8,10 @@ public class EnemyPatrolView : EnemyView
     private new IEnemyPatrolViewModel _viewModel;
     private Transform _currentWaypoint = null;
 
-    public void Initialize(IEnemyPatrolViewModel viewModel)
+    [Inject]
+    protected void Construct(IEnemyPatrolViewModel viewModel, ICharacterInputViewModel characterViewModel)
     {
-        base.Initialize(viewModel);
+        base.Construct(viewModel, characterViewModel);
 
         _viewModel = viewModel;
         _viewModel.Waypoints.OnChanged += SetWaypoints;
