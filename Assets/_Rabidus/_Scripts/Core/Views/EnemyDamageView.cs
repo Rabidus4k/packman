@@ -28,6 +28,7 @@ public class EnemyDamageView : MonoBehaviour, IInteractable
 
     public bool TryInteract()
     {
+        SoundManager.Instance.PlaySound("Hit");
         return true;
     }
 }

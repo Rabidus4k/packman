@@ -57,6 +57,18 @@ MonoBehaviour:
       Value: {fileID: 11400000, guid: 107376a609cde9a47a6903832fdc608b, type: 2}
       index: 1
       isKeyRepeated: 0
+    - Key: Win
+      Value: {fileID: 11400000, guid: 938821e79f1e7454aafcde4f9893e680, type: 2}
+      index: 2
+      isKeyRepeated: 0
+    - Key: Lose
+      Value: {fileID: 11400000, guid: 709c8f9c80d9efa4fa74813fe4be6140, type: 2}
+      index: 3
+      isKeyRepeated: 0
+    - Key: Hit
+      Value: {fileID: 11400000, guid: ed4cdca230dcdc94dbe51204a99ba15e, type: 2}
+      index: 4
+      isKeyRepeated: 0
     dividerPos: 0.33
 --- !u!1 &7013028215543396911
 GameObject:

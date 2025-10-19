@@ -12,6 +12,7 @@ public class WinState : IWinState
 
     public void Enter()
     {
+        SoundManager.Instance.PlaySound("Win");
         Time.timeScale = 0f;
         _winView.ShowPanel();
         Debug.Log("[WinState] Enter");

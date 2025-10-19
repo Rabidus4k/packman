@@ -12,6 +12,7 @@ public class LoseState : ILoseState
 
     public void Enter()
     {
+        SoundManager.Instance.PlaySound("Lose");
         Time.timeScale = 0f;
         _loseView.ShowPanel();
         Debug.Log("[LoseState] Enter");
