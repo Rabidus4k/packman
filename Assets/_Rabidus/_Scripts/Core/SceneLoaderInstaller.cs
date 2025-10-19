@@ -1,10 +1,12 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using VInspector;
 
 public class SceneLoaderInstaller : Singleton<SceneLoaderInstaller>
 {
     [SerializeField] private UILoadingScreen _loadingsScreen;
+
     protected override void Awake()
     {
         base.Awake();
@@ -16,9 +18,8 @@ public class SceneLoaderInstaller : Singleton<SceneLoaderInstaller>
         SceneLoader.SwitchAsync(scene).Forget();
     }
 
-    [Button]
-    private void DebugLoadScene()
+    public void ReloadScene()
     {
-        LoadScene("Game");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

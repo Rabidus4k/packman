@@ -4,7 +4,7 @@ public class UISceneLoaderButton : UICutsomButton
 {
     [SerializeField] private string _sceneName;
 
-    protected override void HandleButtonClick()
+    public override void HandleButtonClick()
     {
         SceneLoaderInstaller.Instance.LoadScene(_sceneName);
     }

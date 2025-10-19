@@ -1,0 +1,4 @@
+public interface IStateMachine
+{
+    void ChangeState(IState state);
+}

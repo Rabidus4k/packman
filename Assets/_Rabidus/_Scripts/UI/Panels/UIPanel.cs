@@ -2,7 +2,7 @@ using UnityEngine;
 using VInspector;
 
 [RequireComponent(typeof(CanvasGroup))]
-public class UIPanel : MonoBehaviour
+public class UIPanel : MonoBehaviour, IUIPanel
 {
     [SerializeField] protected CanvasGroup _cg;
 
