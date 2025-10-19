@@ -7,7 +7,6 @@
 <p align="center">
   <img src="Assets/_Rabidus/Gif/gif.gif" alt="Demo GIF" width="90%" />
 </p>
----
 
 ## ✨ Что внутри
 
