@@ -2,7 +2,7 @@
 - Project name: packman
 - Unity version: Unity 6000.2.2f1
 - Active game object:
-  - Name: Enemy_Spy
+  - Name: Plane
   - Tag: Untagged
-  - Layer: Interactable
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
